@@ -3,51 +3,91 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ovrtime Analyst</title>
-<meta name="description" content="Free picks and parlays from our play-by-play model, our full paper record, and game-day cards. 21+.">
-<meta property="og:title" content="Ovrtime Analyst">
+<title>Ovrtime Sports Analyst</title>
+<meta name="description" content="Free picks and parlays from our play-by-play model, our full paper record, and game-day cards for the NFL, NBA, NHL, UFC and more. 21+.">
+<meta property="og:title" content="Ovrtime Sports Analyst">
 <meta property="og:description" content="Free picks and parlays from our model. Every win and loss posted. 21+.">
 <meta property="og:image" content="img/logo.png">
 <link rel="icon" href="img/logo.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Inter:wght@400;500;600&display=swap">
 <style>
-:root{--bg:#08090b;--panel:#14161b;--line:#262930;--fg:#f5f7fa;--muted:#969ba5;--blue:#00a8ff;--win:#3ad07a;--loss:#e05252;
+/* Broadcast look: black / grey / electric blue, condensed italic display. Sticky sport menu, art banners per sport, team-colour badge tiles. */
+:root{--bg:#08090b;--panel:#14161b;--panel2:#0f1115;--line:#262930;--fg:#f5f7fa;--muted:#969ba5;--blue:#00a8ff;--win:#3ad07a;--loss:#e05252;
 --display:"Barlow Condensed","Avenir Next Condensed","Arial Narrow",sans-serif;--body:"Inter",-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
 *{box-sizing:border-box}
+html{scroll-padding-top:120px}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--body)}
-.wrap{max-width:1040px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-right,0px)) 0 max(18px,env(safe-area-inset-left,0px))}
-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px;border-bottom:1px solid var(--line)}
-nav .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
-nav img{width:52px;height:52px}
-nav b{font:800 italic 26px/1 var(--display);letter-spacing:.02em}
-nav .links{display:flex;gap:18px;flex-wrap:wrap}
-nav .links a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
-nav .links a:hover,nav .links a:focus-visible{color:var(--fg)}
-nav{flex-wrap:wrap}
-@media (max-width:560px){nav b{font-size:22px;white-space:nowrap} nav img{width:44px;height:44px} nav .links{width:100%;justify-content:space-between;gap:10px}}
-.hero{padding-block:48px 28px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(8,9,11,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
+.brand img{width:50px;height:50px}
+.brand b{font:800 italic 25px/1 var(--display);letter-spacing:.02em;white-space:nowrap}
+.links{display:flex;gap:16px;flex-wrap:wrap}
+.links a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+.links a:hover,.links a:focus-visible{color:var(--fg)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 4px 12px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:none;font:800 italic 18px/1 var(--display);color:#000;background:var(--fg);padding:9px 16px;text-decoration:none;transform:skewX(-12deg);border-radius:2px}
+.tabs a:hover,.tabs a:focus-visible{background:var(--blue)}
+.hero{position:relative;min-height:420px;display:flex;align-items:flex-end;background:#000 url('img/bn_nfl.jpg') center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.95) 0%,rgba(8,9,11,.7) 45%,rgba(8,9,11,.1) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 40%)}
+.hero .wrap{position:relative;z-index:1;padding-block:60px 34px;width:100%}
 .tag{display:inline-block;background:var(--blue);color:#000;font:800 italic 17px/1 var(--display);padding:7px 14px;transform:skewX(-12deg)}
 .tag span{display:inline-block;transform:skewX(12deg)}
-h1{font:800 italic clamp(46px,8vw,86px)/.92 var(--display);margin:16px 0 14px;text-wrap:balance}
+h1{font:800 italic clamp(44px,7.5vw,84px)/.92 var(--display);margin:16px 0 14px;max-width:12ch;text-wrap:balance}
 h1 em{color:var(--blue);font-style:italic}
-.hero p{color:#cfd3da;max-width:60ch;margin:0}
+.hero p{color:#d6dae0;max-width:52ch;margin:0}
 .cta{display:inline-flex;margin-top:22px;background:var(--fg);color:#000;font:800 italic 20px/1 var(--display);padding:14px 22px;border-radius:6px;text-decoration:none}
-section{padding-block:34px;border-top:1px solid var(--line)}
-h2{font:800 italic 40px/1 var(--display);margin:0 0 6px}
-h2 small{font:500 14px var(--body);color:var(--muted);margin-left:10px}
-.sub{color:var(--muted);margin:0 0 20px;font-size:14px}
+.block{padding-block:30px}
+.block > h2{font:800 italic 40px/1 var(--display);margin:0 0 6px}
+h2 small,h3 small{font:500 14px var(--body);color:var(--muted);margin-left:10px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:14px}
+.strip{display:flex;align-items:flex-start;gap:14px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+.gfx{flex:none;width:220px;scroll-snap-align:start;margin:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;color:var(--fg);text-decoration:none}
+.gfx img{display:block;width:100%;height:auto}
+.gfx figcaption{padding:8px 10px;font:700 italic 17px/1.1 var(--display)}
+.sport{margin-top:34px}
+.banner{position:relative;height:250px;background:#000 center 18%/cover no-repeat;border-radius:12px;overflow:hidden;display:flex;align-items:flex-end}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.92) 0%,rgba(8,9,11,.5) 45%,rgba(8,9,11,0) 75%)}
+.bt{position:relative;z-index:1;padding:22px 26px}
+.bt h2{font:800 italic clamp(44px,7vw,72px)/.9 var(--display);margin:0}
+.bt p{margin:6px 0 0;color:#d6dae0}
+.sb{padding:18px 2px 6px}
+.sb h3{font:800 italic 28px/1 var(--display);margin:22px 0 12px}
 ul.picks,.parlay ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 ul.picks li,.parlay li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:6px;padding:14px 16px}
 .pk{font:700 italic 24px/1.1 var(--display)}
 .gm{color:var(--muted);font-size:14px;align-self:center}
-.parlays{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin-top:8px}
-.parlay{background:#0f1115;border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
+.parlays{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.parlay{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .parlay header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
-.parlay h3{font:800 italic 26px/1 var(--display);margin:0}
+.parlay h4{font:800 italic 26px/1 var(--display);margin:0}
 .odds{font:800 italic 28px/1 var(--display);color:var(--blue)}
 .parlay li{border-left-width:3px;padding:10px 12px}
 .parlay .pk{font-size:20px}
 .meta{color:var(--muted);font-size:13px;margin:12px 0 0}
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.game{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;min-width:0}
+.mu{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 6px}
+.bdg{position:relative;display:inline-flex;align-items:center;justify-content:center;width:92px;height:62px;background:var(--c1);border:3px solid #fff;transform:skewX(-12deg);box-shadow:inset 0 -9px 0 var(--c2)}
+.bdg b{transform:skewX(12deg);font:800 italic 30px/1 var(--display);color:#fff;text-shadow:0 2px 0 #000,0 0 3px #000;padding-bottom:6px}
+.bdg i{position:absolute;top:-10px;left:-8px;transform:skewX(12deg);background:var(--blue);color:#000;font:800 italic 13px/1 var(--display);padding:3px 5px}
+.at{font:800 italic 26px/1 var(--display);color:var(--blue)}
+.gn{margin-top:12px;font-weight:600;font-size:14px}
+.gn small{color:var(--muted);font-weight:500}
+.gn span{color:var(--muted);font-weight:500}
+.gw{margin-top:4px;font:700 italic 19px/1.1 var(--display);color:var(--fg)}
+.gx{margin-top:4px;color:var(--muted);font-size:13px}
+.event h3{margin-top:0}
+.bouts{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.bouts li{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.ft{font:700 italic 21px/1.1 var(--display);min-width:0;overflow-wrap:anywhere}
+.ft small{display:block;font:500 12px var(--body);color:var(--muted)}
+.ft.r{text-align:right}
+.vs{font:800 italic 20px/1 var(--display);color:var(--blue)}
+.off{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px;color:#cfd3da}
 .none{color:var(--muted)}
 .stats{display:flex;gap:28px;flex-wrap:wrap;margin:6px 0 20px}
 .stat b{display:block;font:800 italic 56px/1 var(--display);font-variant-numeric:tabular-nums}
@@ -57,66 +97,72 @@ table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:ta
 th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
 td.won{color:var(--win);font-weight:600} td.lost{color:var(--loss);font-weight:600}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
-.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;color:var(--fg);text-decoration:none}
-.card img{display:block;width:100%;height:auto}
-.card span{display:block;padding:10px 12px;font:700 italic 18px/1.1 var(--display)}
 .replay{margin-top:30px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;padding:18px 20px}
 .replay h3{font:800 italic 30px/1 var(--display);margin:0 0 6px}
 .caveat{color:var(--muted);font-size:13px;margin:8px 0 0;max-width:70ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;color:var(--fg);text-decoration:none}
+.card img{display:block;width:100%;height:auto}
+.card span{display:block;padding:10px 12px;font:700 italic 18px/1.1 var(--display)}
+.about h2{font:800 italic 40px/1 var(--display);margin:0 0 10px}
 .about p{max-width:65ch;color:#cfd3da}
-.about .sports{max-width:65ch;color:#cfd3da;padding-left:18px;margin:0 0 14px}
-.about .sports li{margin:0 0 6px}
-.about .sports b{color:var(--fg)}
-footer{border-top:1px solid var(--line);padding-block:26px 40px;color:var(--muted);font-size:13px}
+.sports{max-width:65ch;color:#cfd3da;padding-left:18px;margin:0 0 14px}
+.sports li{margin:0 0 6px}
+.sports b{color:var(--fg)}
+footer{border-top:1px solid var(--line);padding-block:26px 40px;color:var(--muted);font-size:13px;margin-top:30px}
 footer strong{color:var(--fg)}
 a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+@media (max-width:560px){.brand b{font-size:21px}.brand img{width:42px;height:42px}.links{width:100%;justify-content:space-between;gap:10px}
+.hero{min-height:360px}.banner{height:190px}.bdg{width:80px;height:54px}.bdg b{font-size:26px}.bouts li{grid-template-columns:1fr;text-align:left}.ft.r{text-align:left}.vs{display:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<nav>
-  <a class="brand" href="#top"><img src="img/logo.png" alt="ovrtime SPORTS ANALYST logo"><b>OVRTIME SPORTS ANALYST</b></a>
-  <div class="links"><a href="#picks">Picks</a><a href="#parlays">Parlays</a><a href="#record">Record</a><a href="#cards">Cards</a><a href="#about">About</a></div>
-</nav>
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#top"><img src="img/logo.png" alt="ovrtime SPORTS ANALYST logo"><b>OVRTIME SPORTS ANALYST</b></a>
+      <nav class="links"><a href="#graphics">Graphics</a><a href="#record">Record</a><a href="#cards">Cards</a><a href="#about">About</a></nav>
+    </div>
+    <nav class="tabs" aria-label="Sports"><a href='#nfl'>NFL</a><a href='#nba'>NBA</a><a href='#nhl'>NHL</a><a href='#cfb'>CFB</a><a href='#ufc'>UFC</a><a href='#mlb'>MLB</a></nav>
+  </div>
+</header>
 
 <div class="hero" id="top">
-  <div class="tag"><span>FREE PICKS · PAPER RECORD</span></div>
-  <h1>THE MODEL'S PICKS. <em>EVERY RESULT POSTED.</em></h1>
-  <p>Picks and parlays from our own play-by-play model, with the record shown as it is, wins and losses. Free, and no sportsbook links.</p>
-  <a class="cta" href="https://www.instagram.com/ovrtimeanalyst/" target="_blank" rel="noopener">FOLLOW @OVRTIMEANALYST</a>
+  <div class="wrap">
+    <div class="tag"><span>FREE PICKS · PAPER RECORD</span></div>
+    <h1>THE MODEL'S PICKS. <em>EVERY RESULT POSTED.</em></h1>
+    <p>Picks and parlays from our own play-by-play model, game-day cards for every sport, and the record shown as it is, wins and losses. Free, and no sportsbook links.</p>
+    <a class="cta" href="https://www.instagram.com/ovrtimeanalyst/" target="_blank" rel="noopener">FOLLOW @OVRTIMEANALYST</a>
+  </div>
 </div>
 
-<section id="picks">
-  <h2>Tonight's picks <small>straight picks, each its own bet</small></h2>
-  <p class="sub">The model's picks with at least a 50% chance on the next games. Updated Thu Nov 19, 2:48 PM ET.</p>
-  <ul class="picks"><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Daniel Jones over 178.5 pass yards (-115)</span><span class='gm'>IND @ HOU</span></li></ul>
-</section>
+<main class="wrap">
+  <section class="block" id="graphics">
+    <h2>Today's graphics</h2>
+    <p class="sub">The betting cards and the latest posts. Swipe for more; tap a post to open it on Instagram.</p>
+    <div class="strip"><figure class='gfx'><img src='img/g0.jpg' alt='Parlay of the day' loading='lazy'><figcaption>Parlay of the day</figcaption></figure><figure class='gfx'><img src='img/g1.jpg' alt='Pick of the night' loading='lazy'><figcaption>Pick of the night</figcaption></figure><figure class='gfx'><img src='img/g2.jpg' alt='Today&#x27;s parlays' loading='lazy'><figcaption>Today&#x27;s parlays</figcaption></figure><a class='gfx' href='https://www.instagram.com/p/Df7n7pLRFFJ/' target='_blank' rel='noopener'><img src='img/c0_0.jpg' alt='Texans: 0-4 At Home' loading='lazy'><figcaption>Texans: 0-4 At Home</figcaption></a><a class='gfx' href='https://www.instagram.com/p/Df7jAI0Ri95/' target='_blank' rel='noopener'><img src='img/c1_0.jpg' alt='Colts At Texans' loading='lazy'><figcaption>Colts At Texans</figcaption></a></div>
+  </section>
 
-<section id="parlays">
-  <h2>Parlays</h2>
-  <p class="sub">Three of the model's parlays for the next slate, picked to share as few legs as possible.</p>
-  <div class="parlays"><article class='parlay'><header><h3>Parlay 1</h3><span class='odds'>≈+204</span></header><ul><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Xavier Worthy over 25.5 rec yards (-115)</span><span class='gm'>ARI @ KC</span></li></ul><p class='meta'>Model hit chance 34% · paper bet · price estimated</p></article><article class='parlay'><header><h3>Parlay 2</h3><span class='odds'>≈+202</span></header><ul><li><span class='pk'>Daniel Jones over 178.5 pass yards (-115)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Chargers To Win (-162)</span><span class='gm'>NYJ @ LAC</span></li></ul><p class='meta'>Model hit chance 33% · paper bet · price estimated</p></article><article class='parlay'><header><h3>Parlay 3</h3><span class='odds'>≈+204</span></header><ul><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Devaughn Vele over 2.5 catches (-115)</span><span class='gm'>NO @ CHI</span></li></ul><p class='meta'>Model hit chance 34% · paper bet · price estimated</p></article></div>
-</section>
+  <section class='sport' id='nfl'><div class='banner' style="background-image:url('img/bn_nflweek.jpg')"><div class='bt'><h2>NFL</h2><p>Picks, parlays and every game this week.</p></div></div><div class='sb'><h3>Tonight&#x27;s picks <small>straight picks, each its own bet · updated Thu 3:06 PM ET</small></h3><ul class='picks'><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Daniel Jones over 178.5 pass yards (-115)</span><span class='gm'>IND @ HOU</span></li></ul><h3>Parlays <small>three of the model's parlays, sharing as few legs as possible</small></h3><div class='parlays'><article class='parlay'><header><h4>Parlay 1</h4><span class='odds'>≈+204</span></header><ul><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Xavier Worthy over 25.5 rec yards (-115)</span><span class='gm'>ARI @ KC</span></li></ul><p class='meta'>Model hit chance 34% · paper bet · price estimated</p></article><article class='parlay'><header><h4>Parlay 2</h4><span class='odds'>≈+202</span></header><ul><li><span class='pk'>Daniel Jones over 178.5 pass yards (-115)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Chargers To Win (-162)</span><span class='gm'>NYJ @ LAC</span></li></ul><p class='meta'>Model hit chance 33% · paper bet · price estimated</p></article><article class='parlay'><header><h4>Parlay 3</h4><span class='odds'>≈+204</span></header><ul><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Devaughn Vele over 2.5 catches (-115)</span><span class='gm'>NO @ CHI</span></li></ul><p class='meta'>Model hit chance 34% · paper bet · price estimated</p></article></div><h3>This week's games</h3><div class='games'><article class='game'><div class='mu'><span class='bdg' style='--c1:#003b75;--c2:#ffffff'><b>IND</b></span><span class='at'>@</span><span class='bdg' style='--c1:#021018;--c2:#eb0028'><b>HOU</b></span></div><div class='gn'>Colts <small>3-7</small> <span>at</span> Texans <small>3-6</small></div><div class='gw'>Today · 8:15 PM ET</div><div class='gx'>Prime Video · HOU -12.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#008e97;--c2:#fc4c02'><b>MIA</b></span><span class='at'>@</span><span class='bdg' style='--c1:#00338d;--c2:#d50a0a'><b>BUF</b></span></div><div class='gn'>Dolphins <small>1-8</small> <span>at</span> Bills <small>8-1</small></div><div class='gw'>Sun Nov 22 · 1:00 PM ET</div><div class='gx'>CBS · BUF -16.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#d3bc8d;--c2:#000000'><b>NO</b></span><span class='at'>@</span><span class='bdg' style='--c1:#0b1c3a;--c2:#e64100'><b>CHI</b></span></div><div class='gn'>Saints <small>3-6</small> <span>at</span> Bears <small>7-2</small></div><div class='gw'>Sun Nov 22 · 1:00 PM ET</div><div class='gx'>Fox · CHI -11.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#4495d2;--c2:#001532'><b>TEN</b></span><span class='at'>@</span><span class='bdg' style='--c1:#002a5c;--c2:#b0b7bc'><b>DAL</b></span></div><div class='gn'>Titans <small>1-8</small> <span>at</span> Cowboys <small>4-6</small></div><div class='gw'>Sun Nov 22 · 1:00 PM ET</div><div class='gx'>Fox · DAL -8.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#bd1c36;--c2:#3e3a35'><b>TB</b></span><span class='at'>@</span><span class='bdg' style='--c1:#0076b6;--c2:#bbbbbb'><b>DET</b></span></div><div class='gn'>Buccaneers <small>3-6</small> <span>at</span> Lions <small>7-2</small></div><div class='gw'>Sun Nov 22 · 1:00 PM ET</div><div class='gx'>Fox · DET -6</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#a40227;--c2:#ffffff'><b>ARI</b></span><span class='at'>@</span><span class='bdg' style='--c1:#e31837;--c2:#ffb612'><b>KC</b></span></div><div class='gn'>Cardinals <small>3-7</small> <span>at</span> Chiefs <small>7-2</small></div><div class='gw'>Sun Nov 22 · 1:00 PM ET</div><div class='gx'>CBS · KC -15.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#000000;--c2:#ffb612'><b>PIT</b></span><span class='at'>@</span><span class='bdg' style='--c1:#06424d;--c2:#000000'><b>PHI</b></span></div><div class='gn'>Steelers <small>6-3</small> <span>at</span> Eagles <small>2-7</small></div><div class='gw'>Sun Nov 22 · 1:00 PM ET</div><div class='gx'>CBS · PIT -4.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#29126f;--c2:#000000'><b>BAL</b></span><span class='at'>@</span><span class='bdg' style='--c1:#0085ca;--c2:#000000'><b>CAR</b></span></div><div class='gn'>Ravens <small>4-6</small> <span>at</span> Panthers <small>4-5</small></div><div class='gw'>Sun Nov 22 · 1:00 PM ET</div><div class='gx'>Fox · CAR -3</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#115740;--c2:#ffffff'><b>NYJ</b></span><span class='at'>@</span><span class='bdg' style='--c1:#0080c6;--c2:#ffc20e'><b>LAC</b></span></div><div class='gn'>Jets <small>2-8</small> <span>at</span> Chargers <small>1-8</small></div><div class='gw'>Sun Nov 22 · 4:05 PM ET</div><div class='gx'>Fox · LAC -3</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#000000;--c2:#a5acaf'><b>LV</b></span><span class='at'>@</span><span class='bdg' style='--c1:#0a2343;--c2:#fc4c02'><b>DEN</b></span></div><div class='gn'>Raiders <small>4-6</small> <span>at</span> Broncos <small>7-2</small></div><div class='gw'>Sun Nov 22 · 4:25 PM ET</div><div class='gx'>CBS · DEN -10</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#007487;--c2:#d7a22a'><b>JAX</b></span><span class='at'>@</span><span class='bdg' style='--c1:#003c7f;--c2:#c9243f'><b>NYG</b></span></div><div class='gn'>Jaguars <small>7-2</small> <span>at</span> Giants <small>5-3-1</small></div><div class='gw'>Sun Nov 22 · 4:25 PM ET</div><div class='gx'>CBS · JAX -6</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#4f2683;--c2:#ffc62f'><b>MIN</b></span><span class='at'>VS</span><span class='bdg' style='--c1:#aa0000;--c2:#b3995d'><b>SF</b></span></div><div class='gn'>Vikings <small>7-2</small> <span>at</span> 49ers <small>8-1</small></div><div class='gw'>Sun Nov 22 · 8:20 PM ET</div><div class='gx'>NBC · SF -3 · Mexico City</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#fb4f14;--c2:#000000'><b>CIN</b></span><span class='at'>@</span><span class='bdg' style='--c1:#5a1414;--c2:#ffb612'><b>WSH</b></span></div><div class='gn'>Bengals <small>7-2</small> <span>at</span> Commanders <small>3-5-1</small></div><div class='gw'>Mon Nov 23 · 8:15 PM ET</div><div class='gx'>ESPN · CIN -6</div></article></div></div></section><section class='sport' id='nba'><div class='banner' style="background-image:url('img/bn_nba.jpg')"><div class='bt'><h2>NBA</h2><p>Tonight&#x27;s slate.</p></div></div><div class='sb'><p class='sub'>Player-prop picks for the NBA show up here when the model has them. Tonight&#x27;s games are below.</p><div class='games'><article class='game'><div class='mu'><span class='bdg' style='--c1:#fdb927;--c2:#1d428a'><b>GS</b></span><span class='at'>@</span><span class='bdg' style='--c1:#5d76a9;--c2:#12173f'><b>MEM</b></span></div><div class='gn'>Warriors <small>8-7</small> <span>at</span> Grizzlies <small>11-4</small></div><div class='gw'>Today · 8:00 PM ET</div><div class='gx'>DAZN MEM · MEM -5.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#e03a3e;--c2:#000000'><b>POR</b></span><span class='at'>@</span><span class='bdg' style='--c1:#00471b;--c2:#eee1c6'><b>MIL</b></span></div><div class='gn'>Trail Blazers <small>9-5</small> <span>at</span> Bucks <small>1-14</small></div><div class='gw'>Today · 8:00 PM ET</div><div class='gx'>KUNP 16, BlazerVision, M · POR -11.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#1d428a;--c2:#f58426'><b>NY</b></span><span class='at'>@</span><span class='bdg' style='--c1:#266092;--c2:#79bc43'><b>MIN</b></span></div><div class='gn'>Knicks <small>8-6</small> <span>at</span> Timberwolves <small>11-4</small></div><div class='gw'>Today · 8:00 PM ET</div><div class='gx'>NBA TV, DAZN MIN · NY -1.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#12173f;--c2:#c8102e'><b>LAC</b></span><span class='at'>@</span><span class='bdg' style='--c1:#000000;--c2:#c4ced4'><b>SA</b></span></div><div class='gn'>Clippers <small>4-9</small> <span>at</span> Spurs <small>12-3</small></div><div class='gw'>Today · 8:00 PM ET</div><div class='gx'>DAZN SAS, KTLA, ClipperV · SA -15.5</div></article></div></div></section><section class='sport' id='nhl'><div class='banner' style="background-image:url('img/bn_nhl.jpg')"><div class='bt'><h2>NHL</h2><p>Tonight&#x27;s slate.</p></div></div><div class='sb'><p class='sub'>NHL moneyline picks show up here on nights the model has a play, once both starting goalies are confirmed.</p><div class='games'><article class='game'><div class='mu'><span class='bdg' style='--c1:#121212;--c2:#a2aaad'><b>LA</b></span><span class='at'>@</span><span class='bdg' style='--c1:#003e7e;--c2:#ffffff'><b>TOR</b></span></div><div class='gn'>Kings <small>6-11-2</small> <span>at</span> Maple Leafs <small>8-13-2</small></div><div class='gw'>Today · 7:00 PM ET</div><div class='gx'>ESPN+, ABTV · TOR -120 · Toronto</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#fe5823;--c2:#000000'><b>PHI</b></span><span class='at'>@</span><span class='bdg' style='--c1:#dd1a32;--c2:#b79257'><b>OTT</b></span></div><div class='gn'>Flyers <small>7-11-6</small> <span>at</span> Senators <small>14-6-2</small></div><div class='gw'>Today · 7:00 PM ET</div><div class='gx'>ESPN+, NBC Sports Phil · OTT -166 · Ottawa</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#0070b9;--c2:#fdb71a'><b>STL</b></span><span class='at'>@</span><span class='bdg' style='--c1:#000000;--c2:#fdb71a'><b>PIT</b></span></div><div class='gn'>Blues <small>10-9-2</small> <span>at</span> Penguins <small>7-11-2</small></div><div class='gw'>Today · 7:00 PM ET</div><div class='gx'>ESPN+, Blues App, BN+, A · PIT -108</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#00468b;--c2:#fdb71a'><b>BUF</b></span><span class='at'>@</span><span class='bdg' style='--c1:#d71830;--c2:#0b1f41'><b>WSH</b></span></div><div class='gn'>Sabres <small>8-9-4</small> <span>at</span> Capitals <small>10-9-0</small></div><div class='gw'>Today · 7:00 PM ET</div><div class='gx'>ESPN+, MNMT, MSGB · WSH -142</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#c41230;--c2:#013a81'><b>MTL</b></span><span class='at'>@</span><span class='bdg' style='--c1:#e30426;--c2:#000000'><b>CAR</b></span></div><div class='gn'>Canadiens <small>13-5-4</small> <span>at</span> Hurricanes <small>16-3-2</small></div><div class='gw'>Today · 7:00 PM ET</div><div class='gx'>ESPN+, CARNHL · CAR -345</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#00529b;--c2:#f47d31'><b>NYI</b></span><span class='at'>@</span><span class='bdg' style='--c1:#002d62;--c2:#c41230'><b>WPG</b></span></div><div class='gn'>Islanders <small>10-6-4</small> <span>at</span> Jets <small>10-9-3</small></div><div class='gw'>Today · 7:00 PM ET</div><div class='gx'>ESPN+, MSGSN · WPG -118 · Winnipeg</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#00205b;--c2:#ff4c00'><b>EDM</b></span><span class='at'>@</span><span class='bdg' style='--c1:#003e7e;--c2:#ffffff'><b>TB</b></span></div><div class='gn'>Oilers <small>17-3-3</small> <span>at</span> Lightning <small>14-5-2</small></div><div class='gw'>Today · 7:30 PM ET</div><div class='gx'>Disney+, ESPN+, Hulu · TB -142</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#002d62;--c2:#e31937'><b>CBJ</b></span><span class='at'>@</span><span class='bdg' style='--c1:#e31937;--c2:#000000'><b>CHI</b></span></div><div class='gn'>Blue Jackets <small>7-12-0</small> <span>at</span> Blackhawks <small>6-13-2</small></div><div class='gw'>Today · 8:00 PM ET</div><div class='gx'>ESPN+, CHSN, CBJNHL · CBJ -162</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#124734;--c2:#ae122a'><b>MIN</b></span><span class='at'>@</span><span class='bdg' style='--c1:#dd1a32;--c2:#000000'><b>CGY</b></span></div><div class='gn'>Wild <small>16-3-4</small> <span>at</span> Flames <small>10-11-1</small></div><div class='gw'>Today · 8:00 PM ET</div><div class='gx'>ESPN+, MINNHL · MIN -238 · Calgary</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#fc4c02;--c2:#000000'><b>ANA</b></span><span class='at'>@</span><span class='bdg' style='--c1:#860038;--c2:#005ea3'><b>COL</b></span></div><div class='gn'>Ducks <small>11-10-1</small> <span>at</span> Avalanche <small>12-7-3</small></div><div class='gw'>Today · 9:00 PM ET</div><div class='gx'>ESPN+, KCOP, Prime Video · COL -130</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#003e7e;--c2:#008752'><b>VAN</b></span><span class='at'>@</span><span class='bdg' style='--c1:#000d33;--c2:#a3dce4'><b>SEA</b></span></div><div class='gn'>Canucks <small>5-17-1</small> <span>at</span> Kraken <small>9-8-1</small></div><div class='gw'>Today · 9:40 PM ET</div><div class='gx'>ESPN+, KONG, Prime Video · SEA -170</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#20864c;--c2:#000000'><b>DAL</b></span><span class='at'>@</span><span class='bdg' style='--c1:#344043;--c2:#b4975a'><b>VGK</b></span></div><div class='gn'>Stars <small>13-6-2</small> <span>at</span> Golden Knights <small>13-6-4</small></div><div class='gw'>Today · 10:00 PM ET</div><div class='gx'>Disney+, ESPN+, Hulu · VGK -125</div></article></div></div></section><section class='sport' id='cfb'><div class='banner' style="background-image:url('img/bn_nfl.jpg')"><div class='bt'><h2>College Football</h2><p>This week&#x27;s games with a ranked team.</p></div></div><div class='sb'><p class='sub'>Games with a ranked team, from ESPN.</p><div class='games'><article class='game'><div class='mu'><span class='bdg' style='--c1:#00934b;--c2:#fff41b'><i>#13</i><b>ORE</b></span><span class='at'>@</span><span class='bdg' style='--c1:#173f35;--c2:#ffffff'><b>MSU</b></span></div><div class='gn'>Oregon <small>7-3</small> <span>at</span> Michigan St <small>3-7</small></div><div class='gw'>Tomorrow · 8:00 PM ET</div><div class='gx'>Fox · ORE -17.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#0047ba;--c2:#002e5d'><i>#10</i><b>BYU</b></span><span class='at'>@</span><span class='bdg' style='--c1:#0051ba;--c2:#e8000d'><b>KU</b></span></div><div class='gn'>BYU <small>8-2</small> <span>at</span> Kansas <small>4-6</small></div><div class='gw'>Sat Nov 21 · 12:00 PM ET</div><div class='gx'>ABC · BYU -5.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#ceb888;--c2:#2c2a29'><i>#11</i><b>WAKE</b></span><span class='at'>@</span><span class='bdg' style='--c1:#b3a369;--c2:#ffffff'><b>GT</b></span></div><div class='gn'>Wake Forest <small>9-1</small> <span>at</span> Georgia Tech <small>3-7</small></div><div class='gw'>Sat Nov 21 · 12:00 PM ET</div><div class='gx'>ESPN · WAKE -20.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#ba0c2f;--c2:#a8adb4'><i>#14</i><b>OSU</b></span><span class='at'>@</span><span class='bdg' style='--c1:#e31937;--c2:#ffffff'><b>NEB</b></span></div><div class='gn'>Ohio State <small>7-3</small> <span>at</span> Nebraska <small>6-4</small></div><div class='gw'>Sat Nov 21 · 12:00 PM ET</div><div class='gx'>Fox · OSU -3.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#000000;--c2:#cfae70'><b>VAN</b></span><span class='at'>@</span><span class='bdg' style='--c1:#0021a5;--c2:#fa4616'><i>#24</i><b>FLA</b></span></div><div class='gn'>Vanderbilt <small>4-6</small> <span>at</span> Florida <small>6-4</small></div><div class='gw'>Sat Nov 21 · 12:00 PM ET</div><div class='gx'>SEC Network · FLA -13.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#533B23;--c2:#f0f0f0'><b>WOF</b></span><span class='at'>@</span><span class='bdg' style='--c1:#13294b;--c2:#cf142b'><i>#25</i><b>MISS</b></span></div><div class='gn'>Wofford <small>5-6</small> <span>at</span> Ole Miss <small>6-4</small></div><div class='gw'>Sat Nov 21 · 12:00 PM ET</div><div class='gx'>SECN+ · MISS -49.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#c8102e;--c2:#ffffff'><i>#20</i><b>HOU</b></span><span class='at'>@</span><span class='bdg' style='--c1:#eaaa00;--c2:#002855'><b>WVU</b></span></div><div class='gn'>Houston <small>7-3</small> <span>at</span> West Virginia <small>5-5</small></div><div class='gw'>Sat Nov 21 · 1:00 PM ET</div><div class='gx'>TNT · HOU -8.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#00386b;--c2:#dca71d'><b>UTC</b></span><span class='at'>@</span><span class='bdg' style='--c1:#9e1b32;--c2:#ffffff'><i>#3</i><b>ALA</b></span></div><div class='gn'>Chattanooga <small>7-4</small> <span>at</span> Alabama <small>8-2</small></div><div class='gw'>Sat Nov 21 · 2:00 PM ET</div><div class='gx'>SECN+ · ALA -49.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#231f20;--c2:#fcd116'><i>#15</i><b>IOWA</b></span><span class='at'>@</span><span class='bdg' style='--c1:#ff5f05;--c2:#13294b'><b>ILL</b></span></div><div class='gn'>Iowa <small>8-2</small> <span>at</span> Illinois <small>6-4</small></div><div class='gw'>Sat Nov 21 · 2:30 PM ET</div><div class='gx'>BTN · IOWA -8.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#2774ae;--c2:#f2a900'><i>#4</i><b>UCLA</b></span><span class='at'>@</span><span class='bdg' style='--c1:#00274c;--c2:#ffcb05'><b>MICH</b></span></div><div class='gn'>UCLA <small>10-0</small> <span>at</span> Michigan <small>5-5</small></div><div class='gw'>Sat Nov 21 · 3:30 PM ET</div><div class='gx'>CBS · UCLA -3.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#a32136;--c2:#ffffff'><b>ARK</b></span><span class='at'>@</span><span class='bdg' style='--c1:#af5c37;--c2:#ffffff'><i>#5</i><b>TEX</b></span></div><div class='gn'>Arkansas <small>4-6</small> <span>at</span> Texas <small>8-2</small></div><div class='gw'>Sat Nov 21 · 3:30 PM ET</div><div class='gx'>ESPN, Disney+ · TEX -20.5</div></article><article class='game'><div class='mu'><span class='bdg' style='--c1:#970310;--c2:#ffffff'><i>#8</i><b>IU</b></span><span class='at'>@</span><span class='bdg' style='--c1:#33006f;--c2:#e8d3a2'><b>WASH</b></span></div><div class='gn'>Indiana <small>9-1</small> <span>at</span> Washington <small>6-4</small></div><div class='gw'>Sat Nov 21 · 3:30 PM ET</div><div class='gx'>Peacock · IU -7.5</div></article></div></div></section><section class='sport' id='ufc'><div class='banner' style="background-image:url('img/bn_ufc.jpg')"><div class='bt'><h2>UFC</h2><p>The next fight card.</p></div></div><div class='sb'><div class='event'><h3>UFC Fight Night: Procházka vs. Stirling</h3><p class='gw'>Sat Nov 21 · 10:00 AM ET</p><ul class='bouts'><li><span class='ft'>Jiří Procházka <small>32-6-1</small></span><span class='vs'>VS</span><span class='ft r'>Navajo Stirling <small>11-0-0</small></span></li><li><span class='ft'>Aljamain Sterling <small>26-5-0</small></span><span class='vs'>VS</span><span class='ft r'>Kevin Vallejos <small>18-1-0</small></span></li><li><span class='ft'>Brian Ortega <small>16-5-0</small></span><span class='vs'>VS</span><span class='ft r'>Dan Hooker <small>24-15-0</small></span></li><li><span class='ft'>Kyoji Horiguchi <small>36-6-0</small></span><span class='vs'>VS</span><span class='ft r'>Asu Almabayev <small>24-3-0</small></span></li><li><span class='ft'>Jared Cannonier <small>18-10-0</small></span><span class='vs'>VS</span><span class='ft r'>Ikram Aliskerov <small>18-2-0</small></span></li><li><span class='ft'>Aleksandre Topuria <small>7-1-0</small></span><span class='vs'>VS</span><span class='ft r'>Santiago Luna <small>8-1-0</small></span></li></ul><p class='sub'>Main card, top bout first. Fighters and records: ESPN. UFC is watch-only: no picks until a UFC rule passes our tests.</p></div></div></section><section class='sport' id='mlb'><div class='banner' style="background-image:url('img/bn_mlb.jpg')"><div class='bt'><h2>MLB</h2><p>Back in the spring.</p></div></div><div class='sb'><p class='off'>The MLB season is over. Picks and game cards come back with spring training.</p></div></section>
 
-<section id="record">
-  <h2>Record <small>live paper bets</small></h2>
-  <div class="stats">
-    <div class="stat"><b>7-10</b><span>Won-lost</span></div>
-    <div class="stat"><b>+44%</b><span>Return on paper stakes</span></div>
-  </div>
-  <p class="sub">The totals count every graded slip. The table shows recent slips.</p>
-  <div class="tablewrap"><table><thead><tr><th>Date</th><th>Slip</th><th>Odds</th><th>Result</th></tr></thead><tbody><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Zay Flowers under 5.5 catches (+102)</td><td>+146</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Lac/Bal U39.5 (-115) + Zay Flowers under 5.5 catches (+102)</td><td>+221</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Jalen Coker under 4.5 catches (-130)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Nico Collins under 4.5 catches (-140) + Jalen Coker under 4.5 catches (-130)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Tucker Kraft under 4.5 catches (-180)</td><td>+204</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Jalen Coker under 4.5 catches (-130) + Michael Mayer over 2.5 catches (-140)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Bhayshul Tuten under 69.5 rush yards (-113)</td><td>+225</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Bengals To Win (-178)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Kc Concepcion under 4.5 catches (-115)</td><td>+222</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Matthew Stafford over 210.5 pass yards (-115)</td><td>+222</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Chiefs To Win (-172)</td><td>+209</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Bhayshul Tuten under 69.5 rush yards (-113) + Tetairoa Mcmillan under 5.5 catches (-166)</td><td>+202</td><td class='lost'>Lost</td></tr></tbody></table></div>
-  <div class='replay'><h3>If we&#x27;d started in Week 1</h3><div class='stats'><div class='stat'><b>+$1,606</b><span>Profit on $3,330 staked</span></div><div class='stat'><b>+48%</b><span>Return</span></div><div class='stat'><b>95%</b><span>Betting days with a winning slip</span></div></div><p class='meta'>Weeks 1-5: +$563 · Weeks 6-10: +$1,043 · flat $15 slips</p><p class='caveat'>Replay, not live bets: the model&#x27;s current rules run back over weeks 1-10 after the fact. Our live paper results and real prices have run below the replay.</p></div>
-</section>
+  <section class="block" id="record">
+    <h2>Record <small>NFL, live paper bets</small></h2>
+    <div class="stats">
+      <div class="stat"><b>7-10</b><span>Won-lost</span></div>
+      <div class="stat"><b>+44%</b><span>Return on paper stakes</span></div>
+    </div>
+    <p class="sub">The totals count every graded slip. The table shows recent slips.</p>
+    <div class="tablewrap"><table><thead><tr><th>Date</th><th>Slip</th><th>Odds</th><th>Result</th></tr></thead><tbody><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Zay Flowers under 5.5 catches (+102)</td><td>+146</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Lac/Bal U39.5 (-115) + Zay Flowers under 5.5 catches (+102)</td><td>+221</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Jalen Coker under 4.5 catches (-130)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Nico Collins under 4.5 catches (-140) + Jalen Coker under 4.5 catches (-130)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Tucker Kraft under 4.5 catches (-180)</td><td>+204</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Jalen Coker under 4.5 catches (-130) + Michael Mayer over 2.5 catches (-140)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Bhayshul Tuten under 69.5 rush yards (-113)</td><td>+225</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Bengals To Win (-178)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Kc Concepcion under 4.5 catches (-115)</td><td>+222</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Matthew Stafford over 210.5 pass yards (-115)</td><td>+222</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Chiefs To Win (-172)</td><td>+209</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Bhayshul Tuten under 69.5 rush yards (-113) + Tetairoa Mcmillan under 5.5 catches (-166)</td><td>+202</td><td class='lost'>Lost</td></tr></tbody></table></div>
+    <div class='replay'><h3>If we&#x27;d started in Week 1</h3><div class='stats'><div class='stat'><b>+$1,606</b><span>Profit on $3,330 staked</span></div><div class='stat'><b>+48%</b><span>Return</span></div><div class='stat'><b>95%</b><span>Betting days with a winning slip</span></div></div><p class='meta'>Weeks 1-5: +$563 · Weeks 6-10: +$1,043 · flat $15 slips</p><p class='caveat'>Replay, not live bets: the model&#x27;s current rules run back over weeks 1-10 after the fact. Our live paper results and real prices have run below the replay.</p></div>
+  </section>
 
-<section id="cards">
-  <h2>Game cards</h2>
-  <p class="sub">Our latest posts. Tap one to open it on Instagram.</p>
-  <div class="cards"><a class='card' href='https://www.instagram.com/p/Df7n7pLRFFJ/' target='_blank' rel='noopener'><img src='img/card0.jpg' alt='TEXANS: 0-4 AT HOME' loading='lazy'><span>TEXANS: 0-4 AT HOME</span></a><a class='card' href='https://www.instagram.com/p/Df7jAI0Ri95/' target='_blank' rel='noopener'><img src='img/card1.jpg' alt='COLTS AT TEXANS' loading='lazy'><span>COLTS AT TEXANS</span></a></div>
-</section>
+  <section class="block" id="cards">
+    <h2>Game cards</h2>
+    <p class="sub">Every slide we've posted, newest first. Tap one to open it on Instagram.</p>
+    <div class="cards"><a class='card' href='https://www.instagram.com/p/Df7n7pLRFFJ/' target='_blank' rel='noopener'><img src='img/c0_0.jpg' alt='Texans: 0-4 At Home' loading='lazy'><span>Texans: 0-4 At Home</span></a><a class='card' href='https://www.instagram.com/p/Df7jAI0Ri95/' target='_blank' rel='noopener'><img src='img/c1_0.jpg' alt='Colts At Texans' loading='lazy'><span>Colts At Texans</span></a></div>
+  </section>
 
-<section id="about" class="about">
+  <section class="block about" id="about">
   <h2>About</h2>
   <p>Ovrtime Analyst covers the NFL, NBA, NHL, UFC, MLB and more. You get game-day cards, highlights and picks from a model we built ourselves.</p>
   <p>Every sport gets the same treatment: ratings built only from games that came before, then checked against real betting prices from past seasons. A rule only makes picks once it holds up in every test period.</p>
@@ -131,10 +177,10 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   <p>Follow <a href="https://www.instagram.com/ovrtimeanalyst/" target="_blank" rel="noopener" style="color:var(--blue)">@ovrtimeanalyst</a> on Instagram and comment on any post for that day's picks.</p>
 </section>
 
-<footer>
-  <p><strong>21+. Bet responsibly.</strong> Paper picks from our model, not betting or financial advice. If gambling stops being fun, call or text 1-800-GAMBLER.</p>
-  <p>Illustrations are our own original characters, not team logos or mascots. Scores and lines: ESPN.</p>
-</footer>
-</div>
+  <footer>
+    <p><strong>21+. Bet responsibly.</strong> Paper picks from our model, not betting or financial advice. If gambling stops being fun, call or text 1-800-GAMBLER.</p>
+    <p>Illustrations are our own original characters, not team logos or mascots. Team badges use team colours and abbreviations only. Scores, schedules and lines: ESPN.</p>
+  </footer>
+</main>
 </body>
 </html>
