@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ovrtime Analyst</title>
+<meta name="description" content="Free NFL picks and parlays from our play-by-play model, our full paper record, and game-day cards. 21+.">
+<meta property="og:title" content="Ovrtime Analyst">
+<meta property="og:description" content="Free NFL picks and parlays from our model. Every win and loss posted. 21+.">
+<meta property="og:image" content="img/logo.png">
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#08090b;--panel:#14161b;--line:#262930;--fg:#f5f7fa;--muted:#969ba5;--blue:#00a8ff;--win:#3ad07a;--loss:#e05252;
+--display:"Barlow Condensed","Avenir Next Condensed","Arial Narrow",sans-serif;--body:"Inter",-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--body)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-right,0px)) 0 max(18px,env(safe-area-inset-left,0px))}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px;border-bottom:1px solid var(--line)}
+nav .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
+nav img{width:52px;height:52px}
+nav b{font:800 italic 26px/1 var(--display);letter-spacing:.02em}
+nav .links{display:flex;gap:18px;flex-wrap:wrap}
+nav .links a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+nav .links a:hover,nav .links a:focus-visible{color:var(--fg)}
+.hero{padding-block:48px 28px}
+.tag{display:inline-block;background:var(--blue);color:#000;font:800 italic 17px/1 var(--display);padding:7px 14px;transform:skewX(-12deg)}
+.tag span{display:inline-block;transform:skewX(12deg)}
+h1{font:800 italic clamp(46px,8vw,86px)/.92 var(--display);margin:16px 0 14px;text-wrap:balance}
+h1 em{color:var(--blue);font-style:italic}
+.hero p{color:#cfd3da;max-width:60ch;margin:0}
+.cta{display:inline-flex;margin-top:22px;background:var(--fg);color:#000;font:800 italic 20px/1 var(--display);padding:14px 22px;border-radius:6px;text-decoration:none}
+section{padding-block:34px;border-top:1px solid var(--line)}
+h2{font:800 italic 40px/1 var(--display);margin:0 0 6px}
+h2 small{font:500 14px var(--body);color:var(--muted);margin-left:10px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:14px}
+ul.picks,.parlay ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.picks li,.parlay li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:6px;padding:14px 16px}
+.pk{font:700 italic 24px/1.1 var(--display)}
+.gm{color:var(--muted);font-size:14px;align-self:center}
+.parlays{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin-top:8px}
+.parlay{background:#0f1115;border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
+.parlay header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.parlay h3{font:800 italic 26px/1 var(--display);margin:0}
+.odds{font:800 italic 28px/1 var(--display);color:var(--blue)}
+.parlay li{border-left-width:3px;padding:10px 12px}
+.parlay .pk{font-size:20px}
+.meta{color:var(--muted);font-size:13px;margin:12px 0 0}
+.none{color:var(--muted)}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin:6px 0 20px}
+.stat b{display:block;font:800 italic 56px/1 var(--display);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+td.won{color:var(--win);font-weight:600} td.lost{color:var(--loss);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;color:var(--fg);text-decoration:none}
+.card img{display:block;width:100%;height:auto}
+.card span{display:block;padding:10px 12px;font:700 italic 18px/1.1 var(--display)}
+.about p{max-width:65ch;color:#cfd3da}
+footer{border-top:1px solid var(--line);padding-block:26px 40px;color:var(--muted);font-size:13px}
+footer strong{color:var(--fg)}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a class="brand" href="#top"><img src="img/logo.png" alt="ovrtime ANALYST logo"><b>OVRTIME ANALYST</b></a>
+  <div class="links"><a href="#picks">Picks</a><a href="#parlays">Parlays</a><a href="#record">Record</a><a href="#cards">Cards</a><a href="#about">About</a></div>
+</nav>
+
+<div class="hero" id="top">
+  <div class="tag"><span>FREE NFL PICKS · PAPER RECORD</span></div>
+  <h1>THE MODEL'S PICKS. <em>EVERY RESULT POSTED.</em></h1>
+  <p>Picks and parlays from our own play-by-play model, with the record shown as it is, wins and losses. Free, and no sportsbook links.</p>
+  <a class="cta" href="https://www.instagram.com/ovrtimeanalyst/" target="_blank" rel="noopener">FOLLOW @OVRTIMEANALYST</a>
+</div>
+
+<section id="picks">
+  <h2>Tonight's picks <small>straight picks, each its own bet</small></h2>
+  <p class="sub">The model's picks with at least a 50% chance on the next games. Updated Thu Nov 19, 1:23 PM ET.</p>
+  <ul class="picks"><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Daniel Jones over 178.5 pass yards (-115)</span><span class='gm'>IND @ HOU</span></li></ul>
+</section>
+
+<section id="parlays">
+  <h2>Parlays</h2>
+  <p class="sub">Three of the model's parlays for the next slate, picked to share as few legs as possible.</p>
+  <div class="parlays"><article class='parlay'><header><h3>Parlay 1</h3><span class='odds'>≈+204</span></header><ul><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Xavier Worthy over 25.5 rec yards (-115)</span><span class='gm'>ARI @ KC</span></li></ul><p class='meta'>Model hit chance 34% · paper bet · price estimated</p></article><article class='parlay'><header><h3>Parlay 2</h3><span class='odds'>≈+202</span></header><ul><li><span class='pk'>Daniel Jones over 178.5 pass yards (-115)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Chargers To Win (-162)</span><span class='gm'>NYJ @ LAC</span></li></ul><p class='meta'>Model hit chance 33% · paper bet · price estimated</p></article><article class='parlay'><header><h3>Parlay 3</h3><span class='odds'>≈+204</span></header><ul><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Devaughn Vele over 2.5 catches (-115)</span><span class='gm'>NO @ CHI</span></li></ul><p class='meta'>Model hit chance 34% · paper bet · price estimated</p></article></div>
+</section>
+
+<section id="record">
+  <h2>Record <small>paper bets, every graded slip</small></h2>
+  <div class="stats">
+    <div class="stat"><b>7-10</b><span>Won-lost</span></div>
+    <div class="stat"><b>+44%</b><span>Return on paper stakes</span></div>
+  </div>
+  <div class="tablewrap"><table><thead><tr><th>Date</th><th>Slip</th><th>Odds</th><th>Result</th></tr></thead><tbody><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Tre&#x27; Harris under 3.5 catches (-122) + Quentin Johnston over 1.5 catches (-310)</td><td>+194</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Tre&#x27; Harris under 3.5 catches (-122) + Quentin Johnston over 1.5 catches (-310) + Mark Andrews over 1.5 catches (-440) + Rashod Bateman over 9.5 rec yards (-400)</td><td>+350</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Tre&#x27; Harris under 3.5 catches (-122) + Quentin Johnston over 1.5 catches (-310) + Mark Andrews over 1.5 catches (-440) + Rashod Bateman over 9.5 rec yards (-400) + Justin Herbert over 149.5 pass yards (-440) + Zay Flowers under 71.5 rec yards (-115)</td><td>+933</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Zay Flowers under 5.5 catches (+102)</td><td>+146</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Lac/Bal U39.5 (-115) + Zay Flowers under 5.5 catches (+102)</td><td>+221</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Jalen Coker under 4.5 catches (-130)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Nico Collins under 4.5 catches (-140) + Jalen Coker under 4.5 catches (-130)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Tucker Kraft under 4.5 catches (-180)</td><td>+204</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Jalen Coker under 4.5 catches (-130) + Michael Mayer over 2.5 catches (-140)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Bhayshul Tuten under 69.5 rush yards (-113)</td><td>+225</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Bengals To Win (-178)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Kc Concepcion under 4.5 catches (-115)</td><td>+222</td><td class='won'>Won</td></tr></tbody></table></div>
+</section>
+
+<section id="cards">
+  <h2>Game cards</h2>
+  <p class="sub">Our latest posts. Tap one to open it on Instagram.</p>
+  <div class="cards"><a class='card' href='https://www.instagram.com/p/Df7n7pLRFFJ/' target='_blank' rel='noopener'><img src='img/card0.jpg' alt='TEXANS: 0-4 AT HOME' loading='lazy'><span>TEXANS: 0-4 AT HOME</span></a><a class='card' href='https://www.instagram.com/p/Df7jAI0Ri95/' target='_blank' rel='noopener'><img src='img/card1.jpg' alt='COLTS AT TEXANS' loading='lazy'><span>COLTS AT TEXANS</span></a><a class='card' href='https://www.instagram.com/p/Df7ho2ox1qx/ (old logo' target='_blank' rel='noopener'><img src='img/card2.jpg' alt='COLTS AT TEXANS' loading='lazy'><span>COLTS AT TEXANS</span></a></div>
+</section>
+
+<section id="about" class="about">
+  <h2>About</h2>
+  <p>Ovrtime Analyst covers the NFL first, then the rest of the sports year, with game-day cards, highlights and the picks from our model. The model reads play-by-play data: each player's share of targets and carries, work left by injured teammates, pace, game script, weather and the opponent's defense. Every pick is tracked as a paper bet and graded after the game, and the record above includes every loss.</p>
+  <p>Follow on Instagram: <a href="https://www.instagram.com/ovrtimeanalyst/" target="_blank" rel="noopener" style="color:var(--blue)">@ovrtimeanalyst</a>. Comment on any post for that day's picks.</p>
+</section>
+
+<footer>
+  <p><strong>21+. Bet responsibly.</strong> Paper picks from our model, not betting or financial advice. If gambling stops being fun, call or text 1-800-GAMBLER.</p>
+  <p>Illustrations are our own original characters, not team logos or mascots. Scores and lines: ESPN.</p>
+</footer>
+</div>
+</body>
+</html>
