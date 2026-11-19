@@ -59,6 +59,9 @@ td.won{color:var(--win);font-weight:600} td.lost{color:var(--loss);font-weight:6
 .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;color:var(--fg);text-decoration:none}
 .card img{display:block;width:100%;height:auto}
 .card span{display:block;padding:10px 12px;font:700 italic 18px/1.1 var(--display)}
+.replay{margin-top:30px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;padding:18px 20px}
+.replay h3{font:800 italic 30px/1 var(--display);margin:0 0 6px}
+.caveat{color:var(--muted);font-size:13px;margin:8px 0 0;max-width:70ch}
 .about p{max-width:65ch;color:#cfd3da}
 footer{border-top:1px solid var(--line);padding-block:26px 40px;color:var(--muted);font-size:13px}
 footer strong{color:var(--fg)}
@@ -81,7 +84,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 <section id="picks">
   <h2>Tonight's picks <small>straight picks, each its own bet</small></h2>
-  <p class="sub">The model's picks with at least a 50% chance on the next games. Updated Thu Nov 19, 1:26 PM ET.</p>
+  <p class="sub">The model's picks with at least a 50% chance on the next games. Updated Thu Nov 19, 1:37 PM ET.</p>
   <ul class="picks"><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Daniel Jones over 178.5 pass yards (-115)</span><span class='gm'>IND @ HOU</span></li></ul>
 </section>
 
@@ -92,12 +95,14 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 </section>
 
 <section id="record">
-  <h2>Record <small>paper bets, every graded slip</small></h2>
+  <h2>Record <small>live paper bets since Nov 15</small></h2>
   <div class="stats">
     <div class="stat"><b>7-10</b><span>Won-lost</span></div>
     <div class="stat"><b>+44%</b><span>Return on paper stakes</span></div>
   </div>
-  <div class="tablewrap"><table><thead><tr><th>Date</th><th>Slip</th><th>Odds</th><th>Result</th></tr></thead><tbody><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Tre&#x27; Harris under 3.5 catches (-122) + Quentin Johnston over 1.5 catches (-310)</td><td>+194</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Tre&#x27; Harris under 3.5 catches (-122) + Quentin Johnston over 1.5 catches (-310) + Mark Andrews over 1.5 catches (-440) + Rashod Bateman over 9.5 rec yards (-400)</td><td>+350</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Tre&#x27; Harris under 3.5 catches (-122) + Quentin Johnston over 1.5 catches (-310) + Mark Andrews over 1.5 catches (-440) + Rashod Bateman over 9.5 rec yards (-400) + Justin Herbert over 149.5 pass yards (-440) + Zay Flowers under 71.5 rec yards (-115)</td><td>+933</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Zay Flowers under 5.5 catches (+102)</td><td>+146</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Lac/Bal U39.5 (-115) + Zay Flowers under 5.5 catches (+102)</td><td>+221</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Jalen Coker under 4.5 catches (-130)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Nico Collins under 4.5 catches (-140) + Jalen Coker under 4.5 catches (-130)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Tucker Kraft under 4.5 catches (-180)</td><td>+204</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Jalen Coker under 4.5 catches (-130) + Michael Mayer over 2.5 catches (-140)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Bhayshul Tuten under 69.5 rush yards (-113)</td><td>+225</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Bengals To Win (-178)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Kc Concepcion under 4.5 catches (-115)</td><td>+222</td><td class='won'>Won</td></tr></tbody></table></div>
+  <p class="sub">The totals count every graded slip. The table shows recent slips.</p>
+  <div class="tablewrap"><table><thead><tr><th>Date</th><th>Slip</th><th>Odds</th><th>Result</th></tr></thead><tbody><tr><td>2026-11-16</td><td>Ravens To Win (-230) + Zay Flowers under 5.5 catches (+102)</td><td>+146</td><td class='lost'>Lost</td></tr><tr><td>2026-11-16</td><td>Lac/Bal U39.5 (-115) + Zay Flowers under 5.5 catches (+102)</td><td>+221</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Jalen Coker under 4.5 catches (-130)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Nico Collins under 4.5 catches (-140) + Jalen Coker under 4.5 catches (-130)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Tucker Kraft under 4.5 catches (-180)</td><td>+204</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Jalen Coker under 4.5 catches (-130) + Michael Mayer over 2.5 catches (-140)</td><td>+203</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Bhayshul Tuten under 69.5 rush yards (-113)</td><td>+225</td><td class='lost'>Lost</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Bengals To Win (-178)</td><td>+205</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Kc Concepcion under 4.5 catches (-115)</td><td>+222</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Mack Hollins over 2.5 catches (-138) + Matthew Stafford over 210.5 pass yards (-115)</td><td>+222</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Ne/Det U49.5 (-105) + Chiefs To Win (-172)</td><td>+209</td><td class='won'>Won</td></tr><tr><td>2026-11-15</td><td>Bhayshul Tuten under 69.5 rush yards (-113) + Tetairoa Mcmillan under 5.5 catches (-166)</td><td>+202</td><td class='lost'>Lost</td></tr></tbody></table></div>
+  <div class='replay'><h3>If we&#x27;d started in Week 1</h3><div class='stats'><div class='stat'><b>+$1,606</b><span>Profit on $3,330 staked</span></div><div class='stat'><b>+48%</b><span>Return</span></div><div class='stat'><b>95%</b><span>Betting days with a winning slip</span></div></div><p class='meta'>Weeks 1-5: +$563 · Weeks 6-10: +$1,043 · flat $15 slips</p><p class='caveat'>Replay, not live bets: the model&#x27;s current rules run back over weeks 1-10 after the fact. Our live paper results and real prices have run below the replay.</p></div>
 </section>
 
 <section id="cards">
