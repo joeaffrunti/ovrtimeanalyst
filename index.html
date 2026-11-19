@@ -65,6 +65,9 @@ td.won{color:var(--win);font-weight:600} td.lost{color:var(--loss);font-weight:6
 .replay h3{font:800 italic 30px/1 var(--display);margin:0 0 6px}
 .caveat{color:var(--muted);font-size:13px;margin:8px 0 0;max-width:70ch}
 .about p{max-width:65ch;color:#cfd3da}
+.about .sports{max-width:65ch;color:#cfd3da;padding-left:18px;margin:0 0 14px}
+.about .sports li{margin:0 0 6px}
+.about .sports b{color:var(--fg)}
 footer{border-top:1px solid var(--line);padding-block:26px 40px;color:var(--muted);font-size:13px}
 footer strong{color:var(--fg)}
 a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
@@ -86,7 +89,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 <section id="picks">
   <h2>Tonight's picks <small>straight picks, each its own bet</small></h2>
-  <p class="sub">The model's picks with at least a 50% chance on the next games. Updated Thu Nov 19, 2:36 PM ET.</p>
+  <p class="sub">The model's picks with at least a 50% chance on the next games. Updated Thu Nov 19, 2:37 PM ET.</p>
   <ul class="picks"><li><span class='pk'>Tyler Warren under 5.5 catches (-160)</span><span class='gm'>IND @ HOU</span></li><li><span class='pk'>Daniel Jones over 178.5 pass yards (-115)</span><span class='gm'>IND @ HOU</span></li></ul>
 </section>
 
@@ -115,7 +118,14 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 <section id="about" class="about">
   <h2>About</h2>
-  <p>Ovrtime Analyst covers the NFL, NBA, NHL, MLB and more. You get game-day cards, highlights and picks from a model we built ourselves.</p>
+  <p>Ovrtime Analyst covers the NFL, NBA, NHL, UFC, MLB and more. You get game-day cards, highlights and picks from a model we built ourselves.</p>
+  <p>Every sport gets the same treatment: ratings built only from games that came before, then checked against real betting prices from past seasons. A rule only makes picks once it holds up in every test period.</p>
+  <ul class="sports">
+    <li><b>NFL:</b> play-by-play player and team model, tested on every game back to 2018.</li>
+    <li><b>NBA:</b> player props (points, rebounds, assists, threes) from projected minutes and per-minute rates, checked against real prop prices since 2023.</li>
+    <li><b>NHL:</b> moneylines from expected-goals ratings, only once both starting goalies are confirmed.</li>
+    <li><b>UFC:</b> fighter ratings from every UFC fight since 2008: strikes landed and absorbed, takedowns, knockdowns, finish rates, age, reach and layoffs. No UFC rule has passed our tests yet, so UFC is watch-only until one does.</li>
+  </ul>
   <p>It reads play-by-play data. Who's getting the targets and carries, who's out tonight and who picks up their work, how fast a team plays, the wind and rain, and the defense on the other side. We tested its rules on every NFL game back to 2018 before trusting them.</p>
   <p>NFL picks go up before every Thursday, Sunday and Monday slate. Each one is logged as a paper bet and graded after the final whistle, and the record above counts every loss.</p>
   <p>Follow <a href="https://www.instagram.com/ovrtimeanalyst/" target="_blank" rel="noopener" style="color:var(--blue)">@ovrtimeanalyst</a> on Instagram and comment on any post for that day's picks.</p>
